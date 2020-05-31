@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
+    "fmt": "prettier --rite src/**/*.js",
     "start": "next start",
-    "fmt": "prettier --rite src/**/*.js"
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "date-fns": "^2.11.1",
@@ -16,6 +17,9 @@
     "react-dom": "16.13.1",
     "remark": "^12.0.0",
     "remark-html": "^11.0.1"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",
